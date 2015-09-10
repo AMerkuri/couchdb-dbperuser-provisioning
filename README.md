@@ -9,6 +9,8 @@ and dbs and setting up security so a user's database is private.  This repo cont
 [OS daemon](http://couchdb.readthedocs.org/en/latest/config/externals.html)
 that can be used to provision per-user databases for most use cases.
 
+Basic CORS Support added.
+
 ### How it works
 
 A client app makes an HTTP request to the provisioning daemon with a desired username and password.
@@ -51,6 +53,7 @@ contents:
 	add_namespace_to_dbname = true
 	; Format for the database name if add_namespace_to_dbname is true. Options: ns_user = namespace then username, user_ns = username then namespace
 	db_name_format = ns_user
+    cors_support = false
     port = 8100
     
     [os_daemons]
@@ -81,6 +84,8 @@ stored in the user document under this key.
 
 `add_namespace_to_dbname` (boolean) - if true, generated database names will include the
 namespace string.
+
+`cors_support` (boolean) - if true, CORS headers are added to the response
   
 ### References
 
